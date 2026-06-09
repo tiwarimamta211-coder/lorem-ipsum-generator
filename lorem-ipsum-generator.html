@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lorem Ipsum Generator – Free Placeholder Text Tool</title>
+<meta name="description" content="Generate random Lorem Ipsum placeholder text with paragraph and sentence controls, HTML tag wrapping, and more. Free online tool.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg:        #0d0d12;
+    --surface:   #13131b;
+    --panel:     #1a1a26;
+    --border:    #2a2a3d;
+    --accent:    #7c6af7;
+    --accent2:   #b8a9ff;
+    --text:      #e8e6f4;
+    --muted:     #7a7890;
+    --success:   #4ade80;
+    --danger:    #f87171;
+    --font-disp: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --r:         12px;
+    --r-sm:      8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-disp);
+    font-weight: 800;
+    font-size: 14px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-disp);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .logo-text span { color: var(--accent); }
+
+  .header-badge {
+    margin-left: auto;
+    background: rgba(124,106,247,0.15);
+    color: var(--accent2);
+    border: 1px solid rgba(124,106,247,0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+
+  /* ── ADS ── */
+  .ad-banner {
+    background: var(--panel);
+    border: 1px dashed var(--border);
+    border-radius: var(--r);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+  }
+  .ad-top    { width: 100%; height: 90px; margin: 20px 0; }
+  .ad-side   { width: 100%; height: 250px; }
+  .ad-bottom { width: 100%; height: 90px; margin: 20px 0; }
+  .ad-banner ins { display: block; width: 100%; }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 40px 0 32px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: var(--font-disp);
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  /* ── MAIN GRID ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .main-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CONTROLS PANEL ── */
+  .controls-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+    position: sticky;
+    top: 80px;
+  }
+
+  .panel-title {
+    font-family: var(--font-disp);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .form-label .value-badge {
+    background: rgba(124,106,247,0.2);
+    color: var(--accent2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 28px;
+    text-align: center;
+  }
+
+  /* SEGMENTED CONTROL */
+  .seg-control {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 3px;
+    gap: 3px;
+  }
+  .seg-btn {
+    flex: 1;
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .seg-btn.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  .seg-btn:hover:not(.active) { background: var(--border); color: var(--text); }
+
+  /* SLIDER */
+  .slider-wrap { position: relative; }
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(124,106,247,0.25);
+    transition: box-shadow 0.15s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 5px rgba(124,106,247,0.35);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 18px; height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    cursor: pointer;
+  }
+
+  /* NUMBER INPUT */
+  .number-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .num-btn {
+    width: 34px; height: 34px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .num-btn:hover { background: var(--border); border-color: var(--accent); }
+  .num-display {
+    flex: 1;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 7px 8px;
+  }
+
+  /* TOGGLE */
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .toggle-row:last-child { border-bottom: none; }
+  .toggle-info { display: flex; flex-direction: column; gap: 2px; }
+  .toggle-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .toggle-desc { font-size: 11px; color: var(--muted); }
+
+  .toggle-switch {
+    position: relative;
+    width: 42px; height: 24px;
+    flex-shrink: 0;
+  }
+  .toggle-switch input { display: none; }
+  .toggle-switch .track {
+    position: absolute;
+    inset: 0;
+    background: var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .toggle-switch .track::after {
+    content: '';
+    position: absolute;
+    left: 3px; top: 3px;
+    width: 18px; height: 18px;
+    background: var(--muted);
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .toggle-switch input:checked + .track { background: var(--accent); }
+  .toggle-switch input:checked + .track::after {
+    transform: translateX(18px);
+    background: #fff;
+  }
+
+  /* SELECT */
+  .styled-select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13px;
+    padding: 8px 12px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7890' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    transition: border-color 0.15s;
+  }
+  .styled-select:focus { border-color: var(--accent); }
+
+  /* GENERATE BUTTON */
+  .btn-generate {
+    width: 100%;
+    padding: 13px 24px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--r);
+    color: #fff;
+    font-family: var(--font-disp);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-generate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1));
+    pointer-events: none;
+  }
+  .btn-generate:hover { background: #6a58e5; box-shadow: 0 4px 20px rgba(124,106,247,0.4); }
+  .btn-generate:active { transform: scale(0.98); }
+
+  /* ── OUTPUT PANEL ── */
+  .output-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+
+  .output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .output-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .meta-chip {
+    background: rgba(124,106,247,0.12);
+    color: var(--accent2);
+    border: 1px solid rgba(124,106,247,0.2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .meta-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .output-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-action {
+    padding: 7px 14px;
+    border-radius: var(--r-sm);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: all 0.15s;
+    border: 1px solid;
+  }
+  .btn-copy {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-copy.copied { border-color: var(--success); color: var(--success); }
+
+  .btn-download {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-download:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .btn-clear {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--muted);
+  }
+  .btn-clear:hover { border-color: var(--danger); color: var(--danger); }
+
+  /* VIEW TABS */
+  .view-tabs {
+    display: flex;
+    padding: 12px 20px 0;
+    gap: 2px;
+    background: var(--surface);
+  }
+  .view-tab {
+    padding: 7px 16px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .view-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .view-tab:hover:not(.active) { color: var(--text); }
+
+  /* OUTPUT CONTENT */
+  .output-content {
+    padding: 24px;
+    min-height: 340px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .output-content::-webkit-scrollbar { width: 5px; }
+  .output-content::-webkit-scrollbar-track { background: transparent; }
+  .output-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  #output-rendered p {
+    margin-bottom: 16px;
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  #output-rendered p:last-child { margin-bottom: 0; }
+
+  #output-code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: #a9b7d6;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: none;
+  }
+  #output-code .tag   { color: #7c9ccc; }
+  #output-code .text  { color: #c9d4e8; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: 14px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .empty-icon {
+    font-size: 48px;
+    opacity: 0.4;
+  }
+  .empty-state h3 {
+    font-family: var(--font-disp);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    opacity: 0.5;
+  }
+  .empty-state p { font-size: 13px; max-width: 280px; opacity: 0.6; }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    gap: 20px;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-val {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent2);
+  }
+  .stat-key {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--surface);
+    border: 1px solid var(--success);
+    color: var(--success);
+    padding: 10px 18px;
+    border-radius: var(--r-sm);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    z-index: 999;
+    transform: translateY(60px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(.34,1.56,.64,1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── INFO CARDS ── */
+  .info-section {
+    margin-top: 40px;
+  }
+  .info-title {
+    font-family: var(--font-disp);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .info-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 18px;
+  }
+  .info-card-icon { font-size: 22px; margin-bottom: 10px; }
+  .info-card h4 {
+    font-family: var(--font-disp);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .info-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .controls-panel { position: static; }
+    .output-header { flex-direction: column; align-items: flex-start; }
+    header { padding: 14px 16px; }
+    .logo-text { font-size: 15px; }
+    .page-wrap { padding: 16px 14px 48px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="logo-icon">Li</div>
+  <span class="logo-text">Lorem<span>Ipsum</span></span>
+  <span class="header-badge">Free Tool</span>
+</header>
+
+<!-- ── MAIN WRAP ── -->
+<div class="page-wrap">
+
+  <!-- Top Ad Banner -->
+  <div class="ad-banner ad-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- Placeholder fallback when ads aren't loaded -->
+    <noscript>Advertisement 728×90</noscript>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">✦ Placeholder Text Generator</p>
+    <h1>Generate <em>Lorem Ipsum</em><br>in seconds.</h1>
+    <p>Configure paragraphs, sentences, HTML tags, encoding and more. Copy clean placeholder text instantly.</p>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- ─── CONTROLS ─── -->
+    <div class="controls-panel">
+      <div class="panel-title">⚙ Generator Settings</div>
+
+      <!-- Generate Type -->
+      <div class="form-group">
+        <div class="form-label">Generate Type</div>
+        <div class="seg-control" id="type-seg">
+          <button class="seg-btn active" data-val="paragraphs" onclick="setType(this,'paragraphs')">Paragraphs</button>
+          <button class="seg-btn" data-val="sentences" onclick="setType(this,'sentences')">Sentences</button>
+          <button class="seg-btn" data-val="words" onclick="setType(this,'words')">Words</button>
+        </div>
+      </div>
+
+      <!-- Count Slider -->
+      <div class="form-group">
+        <div class="form-label">
+          <span id="count-label">Paragraph Count</span>
+          <span class="value-badge" id="count-display">5</span>
+        </div>
+        <input type="range" id="count-slider" min="1" max="20" value="5"
+               oninput="syncCount(this.value)">
+      </div>
+
+      <!-- Or manual input -->
+      <div class="form-group">
+        <div class="form-label">Exact Count</div>
+        <div class="number-input-row">
+          <button class="num-btn" onclick="adjustCount(-1)">−</button>
+          <input type="number" class="num-display" id="count-input" value="5" min="1" max="100"
+                 oninput="syncSlider(this.value)">
+          <button class="num-btn" onclick="adjustCount(1)">+</button>
+        </div>
+      </div>
+
+      <!-- Sentences per paragraph (shown only for paragraph mode) -->
+      <div class="form-group" id="sent-per-para-group">
+        <div class="form-label">
+          <span>Sentences / Paragraph</span>
+          <span class="value-badge" id="sent-display">5</span>
+        </div>
+        <input type="range" id="sent-slider" min="2" max="12" value="5"
+               oninput="document.getElementById('sent-display').textContent=this.value">
+      </div>
+
+      <!-- HTML Tag -->
+      <div class="form-group">
+        <div class="form-label">Wrap with HTML Tag</div>
+        <select class="styled-select" id="html-tag">
+          <option value="none">None (Plain Text)</option>
+          <option value="p" selected>&lt;p&gt; Paragraph</option>
+          <option value="div">&lt;div&gt; Division</option>
+          <option value="span">&lt;span&gt; Inline</option>
+          <option value="blockquote">&lt;blockquote&gt; Blockquote</option>
+          <option value="li">&lt;li&gt; List Item</option>
+          <option value="h1">&lt;h1&gt; Heading 1</option>
+          <option value="h2">&lt;h2&gt; Heading 2</option>
+          <option value="h3">&lt;h3&gt; Heading 3</option>
+          <option value="article">&lt;article&gt;</option>
+          <option value="section">&lt;section&gt;</option>
+        </select>
+      </div>
+
+      <!-- Toggles -->
+      <div class="form-group" style="margin-bottom:4px">
+
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <span class="toggle-name">Start with "Lorem ipsum"</span>
+            <span class="toggle-desc">Classic opener on first paragraph</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="start-lorem" checked>
+            <span class="track"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <span class="toggle-name">Bold / Italic variations</span>
+            <span class="toggle-desc">Random &lt;strong&gt; &lt;em&gt; tags</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-bold">
+            <span class="track"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <span class="toggle-name">Include link tags</span>
+            <span class="toggle-desc">Random &lt;a href="#"&gt; inline</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-links">
+            <span class="track"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <span class="toggle-name">Line breaks between blocks</span>
+            <span class="toggle-desc">Add &lt;br&gt; between elements</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-br">
+            <span class="track"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <span class="toggle-name">Show word count stats</span>
+            <span class="toggle-desc">Words, sentences, chars</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-stats" checked>
+            <span class="track"></span>
+          </label>
+        </div>
+
+      </div>
+
+      <button class="btn-generate" onclick="generateText()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+        Generate Lorem Ipsum
+      </button>
+    </div>
+
+    <!-- ─── OUTPUT AREA ─── -->
+    <div>
+      <div class="output-panel">
+        <div class="output-header">
+          <div class="output-meta">
+            <span class="meta-dot" id="status-dot" style="background:var(--muted)"></span>
+            <span class="meta-chip" id="output-label">Ready</span>
+          </div>
+          <div class="output-actions">
+            <button class="btn-action btn-copy" onclick="copyText()" id="copy-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+              </svg>
+              Copy
+            </button>
+            <button class="btn-action btn-download" onclick="downloadText()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              .txt
+            </button>
+            <button class="btn-action btn-download" onclick="downloadHTML()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              .html
+            </button>
+            <button class="btn-action btn-clear" onclick="clearOutput()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
+              </svg>
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- View tabs -->
+        <div class="view-tabs">
+          <button class="view-tab active" id="tab-preview" onclick="switchTab('preview')">Preview</button>
+          <button class="view-tab" id="tab-code" onclick="switchTab('code')">HTML Code</button>
+        </div>
+
+        <div class="output-content">
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">✦</div>
+            <h3>Nothing yet</h3>
+            <p>Configure your settings on the left and hit <strong>Generate</strong>.</p>
+          </div>
+          <div id="output-rendered" style="display:none"></div>
+          <pre id="output-code"></pre>
+        </div>
+
+        <div class="stats-bar" id="stats-bar" style="display:none">
+          <div class="stat-item">
+            <span class="stat-val" id="stat-words">0</span>
+            <span class="stat-key">Words</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val" id="stat-chars">0</span>
+            <span class="stat-key">Characters</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val" id="stat-sentences">0</span>
+            <span class="stat-key">Sentences</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val" id="stat-paragraphs">0</span>
+            <span class="stat-key">Paragraphs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inline Side Ad below output on mobile / sidebar on desktop -->
+      <div class="ad-banner ad-side" style="margin-top:16px">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="2222222222"
+             data-ad-format="rectangle"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <noscript>Advertisement 300×250</noscript>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Banner Ad -->
+  <div class="ad-banner ad-bottom">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="3333333333"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <noscript>Advertisement 728×90</noscript>
+  </div>
+
+  <!-- INFO CARDS -->
+  <div class="info-section">
+    <div class="info-title">Why Lorem Ipsum?</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">🎨</div>
+        <h4>Design Focus</h4>
+        <p>Placeholder text lets designers focus on layout and visual hierarchy without real-content distractions.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">⚡</div>
+        <h4>Instant Prototype</h4>
+        <p>Spin up mockups, wireframes, and prototypes in seconds using generated blocks of realistic text.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🧩</div>
+        <h4>HTML Ready</h4>
+        <p>Export text already wrapped in semantic HTML tags like &lt;p&gt;, &lt;div&gt;, or headings — paste directly into code.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📐</div>
+        <h4>Proportional</h4>
+        <p>Latin-like letter frequency mimics real English text, giving accurate line-length and text-flow estimates.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── LOREM IPSUM WORD BANK ──────────────────────────────────────────────────
+const WORDS = [
+  "lorem","ipsum","dolor","sit","amet","consectetur","adipiscing","elit",
+  "sed","do","eiusmod","tempor","incididunt","ut","labore","et","dolore",
+  "magna","aliqua","enim","ad","minim","veniam","quis","nostrud","exercitation",
+  "ullamco","laboris","nisi","aliquip","ex","ea","commodo","consequat","duis",
+  "aute","irure","in","reprehenderit","voluptate","velit","esse","cillum",
+  "fugiat","nulla","pariatur","excepteur","sint","occaecat","cupidatat","non",
+  "proident","sunt","culpa","qui","officia","deserunt","mollit","anim","id",
+  "est","laborum","curabitur","pretium","tincidunt","lacus","nec","dignissim",
+  "risus","condimentum","feugiat","aliquam","vestibulum","sem","rhoncus","ligula",
+  "vitae","semper","mauris","lacinia","velit","nullam","varius","volutpat","justo",
+  "euismod","eget","urna","pellentesque","habitant","morbi","tristique","senectus",
+  "netus","malesuada","fames","turpis","egestas","cras","fermentum","odio","eu",
+  "augue","ut","lectus","arcu","bibendum","sociis","natoque","penatibus","magnis",
+  "parturient","montes","nascetur","ridiculus","mus","praesent","commodo","cursus",
+  "magna","vel","scelerisque","nisl","consectetur","purus","aliquam","interdum",
+  "posuere","lorem","at","luctus","accumsan","tortor","posuere","ac","ut",
+  "pharetra","sit","amet","aliquam","id","diam","maecenas","ultricies","mi",
+  "etiam","erat","velit","scelerisque","in","dictum","non","consectetur",
+  "platea","dictumst","quisque","sagittis","purus","sit","amet","volutpat",
+  "porta","nibh","venenatis","cras","sed","felis","eget","velit","aliquet",
+  "sagittis","id","consectetur","purus","ut","faucibus","pulvinar","elementum",
+  "integer","enim","neque","volutpat","ac","tincidunt","vitae","semper","quis",
+  "lectus","nulla","at","volutpat","diam","ut","venenatis","tellus","in",
+];
+
+const LOREM_START = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let genType = 'paragraphs';
+let currentHTML = '';
+let currentPlain = '';
+let currentTab = 'preview';
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function makeSentence(wordCount) {
+  const len = wordCount || rand(8, 18);
+  let words = [];
+  for (let i = 0; i < len; i++) words.push(pick(WORDS));
+  return capitalize(words.join(' ')) + '.';
+}
+
+function makeParagraph(sentenceCount) {
+  const n = sentenceCount || rand(3, 8);
+  let sentences = [];
+  for (let i = 0; i < n; i++) sentences.push(makeSentence());
+  return sentences.join(' ');
+}
+
+function injectInlineFormatting(text, doLinks, doBold) {
+  let parts = text.split(' ');
+  parts = parts.map((word, i) => {
+    if (doBold && i > 0 && i % rand(10, 18) === 0) {
+      if (Math.random() > 0.5) return `<strong>${word}</strong>`;
+      return `<em>${word}</em>`;
+    }
+    if (doLinks && i > 0 && i % rand(15, 25) === 0) {
+      return `<a href="#">${word}</a>`;
+    }
+    return word;
+  });
+  return parts.join(' ');
+}
+
+// ── SYNC CONTROLS ─────────────────────────────────────────────────────────
+function setType(el, val) {
+  genType = val;
+  document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  const labels = { paragraphs: 'Paragraph Count', sentences: 'Sentence Count', words: 'Word Count' };
+  document.getElementById('count-label').textContent = labels[val];
+  document.getElementById('sent-per-para-group').style.display = val === 'paragraphs' ? '' : 'none';
+}
+
+function syncCount(v) {
+  document.getElementById('count-display').textContent = v;
+  document.getElementById('count-input').value = v;
+}
+function syncSlider(v) {
+  const clamped = Math.max(1, Math.min(100, parseInt(v) || 1));
+  document.getElementById('count-slider').value = Math.min(clamped, 20);
+  document.getElementById('count-display').textContent = clamped;
+}
+function adjustCount(d) {
+  const inp = document.getElementById('count-input');
+  const newVal = Math.max(1, Math.min(100, parseInt(inp.value || 1) + d));
+  inp.value = newVal;
+  syncSlider(newVal);
+}
+
+// ── GENERATE ──────────────────────────────────────────────────────────────
+function generateText() {
+  const count       = parseInt(document.getElementById('count-input').value) || 5;
+  const sentPer     = parseInt(document.getElementById('sent-slider').value) || 5;
+  const tag         = document.getElementById('html-tag').value;
+  const startLorem  = document.getElementById('start-lorem').checked;
+  const doBold      = document.getElementById('toggle-bold').checked;
+  const doLinks     = document.getElementById('toggle-links').checked;
+  const doBr        = document.getElementById('toggle-br').checked;
+  const showStats   = document.getElementById('toggle-stats').checked;
+
+  let blocks = [];
+
+  if (genType === 'paragraphs') {
+    for (let i = 0; i < count; i++) {
+      let text = makeParagraph(sentPer);
+      if (i === 0 && startLorem) text = LOREM_START + ' ' + text;
+      if (doBold || doLinks) text = injectInlineFormatting(text, doLinks, doBold);
+      blocks.push({ text, raw: stripTags(text) });
+    }
+  } else if (genType === 'sentences') {
+    for (let i = 0; i < count; i++) {
+      let text = makeSentence();
+      if (i === 0 && startLorem) text = "Lorem ipsum dolor sit amet.";
+      if (doBold || doLinks) text = injectInlineFormatting(text, doLinks, doBold);
+      blocks.push({ text, raw: stripTags(text) });
+    }
+  } else {
+    // words — one block
+    let words = [];
+    for (let i = 0; i < count; i++) words.push(pick(WORDS));
+    if (startLorem) {
+      words.unshift('lorem', 'ipsum');
+      words = words.slice(0, count);
+    }
+    let text = capitalize(words.join(' ')) + '.';
+    if (doBold || doLinks) text = injectInlineFormatting(text, doLinks, doBold);
+    blocks.push({ text, raw: stripTags(text) });
+  }
+
+  // Build HTML
+  const br = doBr ? '\n' : '';
+  let html = '';
+  let plain = '';
+
+  blocks.forEach(b => {
+    if (tag !== 'none') {
+      html += `<${tag}>${b.text}</${tag}>${br}\n`;
+    } else {
+      html += b.text + '\n\n';
+    }
+    plain += b.raw + '\n\n';
+  });
+
+  currentHTML  = html.trim();
+  currentPlain = plain.trim();
+
+  // Render
+  renderOutput(currentHTML, currentPlain, tag, showStats, blocks);
+
+  // Update status
+  document.getElementById('status-dot').style.background = 'var(--success)';
+  document.getElementById('output-label').textContent = `${count} ${genType} generated`;
+}
+
+function stripTags(html) {
+  return html.replace(/<[^>]+>/g, '');
+}
+
+function renderOutput(html, plain, tag, showStats, blocks) {
+  document.getElementById('empty-state').style.display = 'none';
+
+  // Rendered tab
+  document.getElementById('output-rendered').innerHTML = html;
+  document.getElementById('output-rendered').style.display = currentTab === 'preview' ? '' : 'none';
+
+  // Code tab with syntax highlight
+  const highlighted = html
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/(&lt;\/?[\w]+&gt;)/g, '<span class="tag">$1</span>');
+  document.getElementById('output-code').innerHTML = highlighted;
+  document.getElementById('output-code').style.display = currentTab === 'code' ? '' : 'none';
+
+  // Stats
+  if (showStats) {
+    const words = plain.trim().split(/\s+/).filter(Boolean).length;
+    const chars = plain.length;
+    const sentences = (plain.match(/[.!?]+/g) || []).length;
+    const paras = tag === 'none' ? blocks.length : blocks.length;
+    document.getElementById('stat-words').textContent = words.toLocaleString();
+    document.getElementById('stat-chars').textContent = chars.toLocaleString();
+    document.getElementById('stat-sentences').textContent = sentences;
+    document.getElementById('stat-paragraphs').textContent = paras;
+    document.getElementById('stats-bar').style.display = 'flex';
+  } else {
+    document.getElementById('stats-bar').style.display = 'none';
+  }
+}
+
+// ── TABS ──────────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tab-preview').classList.toggle('active', tab === 'preview');
+  document.getElementById('tab-code').classList.toggle('active', tab === 'code');
+  const hasContent = document.getElementById('output-rendered').innerHTML.trim() !== '';
+  document.getElementById('output-rendered').style.display = (tab === 'preview' && hasContent) ? '' : 'none';
+  document.getElementById('output-code').style.display = (tab === 'code' && hasContent) ? '' : 'none';
+}
+
+// ── COPY ──────────────────────────────────────────────────────────────────
+function copyText() {
+  if (!currentPlain) return showToast('⚠ Generate text first!', '#f87171');
+  const text = currentTab === 'code' ? currentHTML : currentPlain;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 12 4 9"/></svg> Copied!`;
+    showToast('✓ Copied to clipboard!', 'var(--success)');
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy`;
+    }, 2500);
+  });
+}
+
+function downloadText() {
+  if (!currentPlain) return showToast('⚠ Generate text first!', '#f87171');
+  const blob = new Blob([currentPlain], { type: 'text/plain' });
+  triggerDownload(blob, 'lorem-ipsum.txt');
+}
+
+function downloadHTML() {
+  if (!currentHTML) return showToast('⚠ Generate text first!', '#f87171');
+  const full = `<!DOCTYPE html>\n<html lang="en">\n<head><meta charset="UTF-8"><title>Lorem Ipsum</title></head>\n<body>\n${currentHTML}\n</body>\n</html>`;
+  const blob = new Blob([full], { type: 'text/html' });
+  triggerDownload(blob, 'lorem-ipsum.html');
+}
+
+function triggerDownload(blob, filename) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('⬇ Download started!', 'var(--accent2)');
+}
+
+function clearOutput() {
+  currentHTML = '';
+  currentPlain = '';
+  document.getElementById('output-rendered').innerHTML = '';
+  document.getElementById('output-rendered').style.display = 'none';
+  document.getElementById('output-code').innerHTML = '';
+  document.getElementById('output-code').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'flex';
+  document.getElementById('stats-bar').style.display = 'none';
+  document.getElementById('status-dot').style.background = 'var(--muted)';
+  document.getElementById('output-label').textContent = 'Ready';
+  showToast('🗑 Cleared!', 'var(--muted)');
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg, color = 'var(--success)') {
+  const t = document.getElementById('toast');
+  t.innerHTML = msg;
+  t.style.color = color;
+  t.style.borderColor = color;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Generate on load with default settings
+  generateText();
+});
+</script>
+</body>
+</html>
